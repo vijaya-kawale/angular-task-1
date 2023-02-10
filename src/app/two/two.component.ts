@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-two',
@@ -6,27 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./two.component.css']
 })
 export class TwoComponent  {
+  form: FormGroup | any;
 
-  // productList: any[] = []
-  // productDetails:any[]=[]
-  
-  // quantity: number = 1
-  // disabled:boolean = true
-  // myProductName: any;
- 
-  //constructor(private prodServe:ProductService) { }
+  constructor() { }
 
-  // ngOnInit(): void {
-  //   this.productList = this.prodServe.getProduct()
-  // }
-  // decreaseQuantity() {
-  //   this.quantity = this.quantity - 1
-  // }
-  // increaseQuantity() {
-  //   this.quantity = this.quantity+1
-  // }
+   ngOnInit(): void {
+    this.form = new FormGroup({
+      email: new FormControl(''),
+      phone: new FormControl(''),
+      selectedOption: new FormControl(''),
+      firstName: new FormControl(''),
+      lastName: new FormControl('')
+   })
+  }
   
-  // addProductDetail() {
-  //   this.productDetails.push(this.productList)
-  // }
 }

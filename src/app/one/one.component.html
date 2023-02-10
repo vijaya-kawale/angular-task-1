@@ -1,19 +1,32 @@
-<form [formGroup]="myProductName" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="uploadImg">Upload Image</label>
-        <input type="text" class="form-control" id="uploadImg" formControlName="productImg">
+<div class="row">
+    <div class="col-sm-6">
+        <div [formGroup]="form">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="tex" class="form-control" formControlName="firstName">
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="tex" class="form-control" formControlName="LastName">
+            </div>
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="contactMethod" value="email">
+                    <label class="form-check-label">Email</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="contactMethod" value="phone">
+                    <label class="form-check-label">Phone</label>
+                </div>
+            </div>
+            <div class="form-group" *ngIf="form.get('contactMethod').value === 'email'">
+                <label>Email</label>
+                <input type="email" formControlName="email" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group" *ngIf="form.get('contactMethod').value === 'phone'">
+                <label>Phone</label>
+                <input type="tel" formControlName="phone" placeholder="Phone" class="form-control">
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="productName">Product Name</label>
-        <input type="text" class="form-control" id="productName" formControlName="productName">
-    </div>
-    <div class="form-group">
-        <label for="productPrice">Product Price</label>
-        <input type="text" class="form-control" id="productPrice" formControlName="productPrice">
-    </div>
-    <div class="form-group">
-        <label for="productPrice">Product Price</label>
-        <input type="text" class="form-control" id="productPrice" formControlName="prodQua">
-    </div>
-    <button class="btn btn-primary btn-block" type="submit">Add Product</button>
-</form>
+</div>

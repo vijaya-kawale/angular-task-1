@@ -1,49 +1,8 @@
 <app-header></app-header>
 <div class="container">
   <div class="row">
-    <div class="col-md-3"  *ngFor="let product of productList">
-      <div class="card mb-2">
-        <img [src]="product.prodImg" class="card-img-top img" alt="...">
-        <div class="card-body">
-          <h2 class="card-title">{{product.prodName}}</h2>
-          <p class="card-text">$ RM{{product.prodPrice}}</p>
-          <div>
-            <button class="btn btn-secondary" (click)="decreaseQuantity(product)">-</button>
-            <span class="mx-2">{{product.prodQua}}</span>
-            <button class="btn btn-secondary" (click)="increaseQuantity(product)">+</button>
-          </div>
-          <button class="btn btn-primary mt-2" (click)="addProductDetail(product)">Add to bag</button>
-        </div>
-      </div>    
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <h1>My Shopping Bag</h1>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">Product Name</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Price Details</th>
-            <th scope="col">Order Total</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let bagDetail of tableDetails">
-            <th>{{bagDetail.prodName}}</th>
-            <td>{{bagDetail.prodQua}}</td>
-            <td> RM{{bagDetail.prodPrice}}</td>
-            <td>{{bagDetail.prodQua  * bagDetail.prodPrice | currency}}</td>
-            <td><button class="btn btn-danger">X</button></td>
-          </tr>
-          <tr>
-            <td colspan="3" align="right">Total</td>
-            <td align="right">{{setTotal() | currency}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+   <div class="col-sm-12">
+    <router-outlet></router-outlet>
+   </div>
   </div>
 </div>
